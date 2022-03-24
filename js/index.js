@@ -466,7 +466,7 @@ option = {
 
                 {
                     value: 2464,
-                    name: 'activist',
+                    name: '50+',
                     itemStyle: {
                         borderColor: colorArr[3],
                         borderWidth: 2,
