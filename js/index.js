@@ -226,62 +226,56 @@
 
 //词云图
 (function(){
-
   var myChart = echarts.init(document.querySelector(".scatter .chart"));
-    var data1 = [
-  {name:'安徽',value:3},
-  {name:'广东',value:3},
-  {name:'广西',value:11},
-  {name:'贵州',value:13},
-  {name:'海南',value:4},
-  {name:'河南',value:4},
-  {name:'黑龙江',value:1},
-  {name:'湖南',value:2},
-  {name:'江西',value:6},
-  {name:'辽宁',value:1},
-  {name:'陕西',value:2},
-  {name:'四川',value:1},
-  {name:'新疆',value:1},
-  {name:'云南',value:2},
-  {name:'重庆',value:2},
-  ]
-
-    var option = {
-    title:{
-      text:'词云',
-      textStyle:{
-        color:'#f9f4dc'
-      }
+  var option = {
+    grid: {
+      left: '10%',
+      top: 5,
+      right: '10%',
+      bottom: 5,
     },
-    backgroundColor:'#000',
-    series:[{
-      type:'wordCloud',
-
-      //网格尺寸,尺寸越大，字体之间的间隔越大
-      grideSize:2,
-      //字体的最大与最小字号
-      sizeRange:[8,16],
-      shape:'star',
-      textStyle:{
-        normal:{
-          //字体随机颜色
-          color:function(){
-            return 'rgb('+[
-              Math.round(Math.random()*255),
-              Math.round(Math.random()*255),
-              Math.round(Math.random()*255)
-            ].join(',')+')';
-          }
+    itemStyle: {
+      color: 'rgba(255,255,255,0)',
+    },
+    tooltip: {
+      show: true,
+      trigger: 'item',
+    },
+    series: [
+      {
+        name:"省份",
+        type: 'graph',
+        layout: 'force', //引导布局
+        label: {
+          show: true,
+          color: 'auto',
         },
-        emphasis:{
-          //阴影距离
-          shadowBlur:1,
-          //阴影颜色
-          shadowColor:'#111'
-        }
+        data: [{ name:'河北',size: 24, color: '#500a16', x: 60, y: 32 },
+        { name:'湖北',size: 34, color: '#2177b8', x: 30, y: 50 },
+        { name:'广东',size: 44, color: '#fa7e23', x: 50, y: 80 },
+        {name:'浙江',size: 52, color: '#f23e23', x:120,y:70 },
+        { name:'上海',size: 32, color: '#B4FFFC', x: 110, y: 34 },
+        {name:'福建',size: 32, color: '#ea8958', x: 104, y: 110},
+        { name:'湖南',size: 20, color: '#eb507e', x: 175, y: 48 },
+        { name:'北京',size: 36, color: '#f8b37f', x: 194, y: 75 },
+        { name:'四川',size: 15, color: '#fa5d19', x: 50, y: 105 },
+        { name:'河南',size: 15, color: '#fa5d19', x: 156, y: 16 }].map((item) => ({
+          name: item.name,
+          //   draggable: false,
+          itemStyle: {
+            color: 'rgba(255,255,255,0)',
+          },
+          value: item.val,
+          x: item.x,
+          y: item.y,
+          fixed: true,
+          label: {
+            color: item.color,
+            fontSize: item.size,
+          },
+        })),
       },
-      data:data1
-    }]
+    ],
   };
   myChart.setOption(option);
   window.addEventListener("resize", function() {
@@ -293,24 +287,6 @@
 
 //树形图
 (function(){
-    var data1 = [
-  {name:'安徽',value:3},
-  {name:'广东',value:3},
-  {name:'广西',value:11},
-  {name:'贵州',value:13},
-  {name:'海南',value:4},
-  {name:'河南',value:4},
-  {name:'黑龙江',value:1},
-  {name:'湖南',value:2},
-  {name:'江西',value:6},
-  {name:'辽宁',value:1},
-  {name:'陕西',value:2},
-  {name:'四川',value:1},
-  {name:'新疆',value:1},
-  {name:'云南',value:2},
-  {name:'重庆',value:2},
-  ]
-
   var myChart = echarts.init(document.querySelector(".tree .chart"));
   const themeColor = '#00ffff';
 const fontColor = '#040624'
