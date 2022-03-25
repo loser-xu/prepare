@@ -228,6 +228,24 @@
 (function(){
 
   var myChart = echarts.init(document.querySelector(".scatter .chart"));
+    var data1 = [
+  {name:'安徽',value:3},
+  {name:'广东',value:3},
+  {name:'广西',value:11},
+  {name:'贵州',value:13},
+  {name:'海南',value:4},
+  {name:'河南',value:4},
+  {name:'黑龙江',value:1},
+  {name:'湖南',value:2},
+  {name:'江西',value:6},
+  {name:'辽宁',value:1},
+  {name:'陕西',value:2},
+  {name:'四川',value:1},
+  {name:'新疆',value:1},
+  {name:'云南',value:2},
+  {name:'重庆',value:2},
+  ]
+
     var option = {
     title:{
       text:'词云',
